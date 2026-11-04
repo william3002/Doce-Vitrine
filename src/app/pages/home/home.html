@@ -1,0 +1,31 @@
+<main class="min-h-screen bg-[#fcf8f5] p-6 md:p-12">
+  <div class="mx-auto max-w-7xl">
+    <h1 class="mb-8 text-3xl font-bold text-[#260f08]">Sobremesas</h1>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      @for (produto of produtos(); track produto.id) {
+        <div class="rounded-xl bg-white p-4">
+          <div class="relative">
+            <img
+              [src]="produto.image.desktop"
+              [alt]="produto.name"
+              class="aspect-4/3 w-full rounded-xl object-cover"
+            />
+            <button
+              class="min-w-max absolute left-1/2 -bottom-10 -translate-1/2 mx-auto mt-4 flex items-center justify-center gap-2 rounded-full border  border-[#ad8a85] bg-white px-6 py-3 text-sm font-semibold text-[#260f08] transition hover:border-[#c73b0f] hover:text-[#c73b0f]"
+            >
+            <img src="/assets/images/icon-add-to-cart.svg" alt="Icone de carinho de compras" class="h-5 w-5 shrink-0">
+              Adicionar ao carrinho
+            </button>
+          </div>
+
+          <div class="mt-5">
+            <p class="text-sm text-gray-500">{{ produto.category }}</p>
+            <h2 class="font-bold">{{ produto.name }}</h2>
+            <p class="font-semibold text-[#c73b0f]">{{ produto.price | currency: 'BRL' }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</main>
